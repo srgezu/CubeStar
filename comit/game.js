@@ -9,10 +9,6 @@ $(document).ready(function() {
 	Crafty.audio.add('hit', 'sound/hit.wav');
 	Crafty.audio.add('hit2', 'sound/hit2.wav');
 	
-	Crafty.modules({ 'crafty-debug-bar': 'release' }, function () {
-	Crafty.debugBar.show();
-	});
-	
 	
 	Crafty.scene("game"); 
 });

@@ -16,33 +16,33 @@ Crafty.c("player",{
 			
 		if ( this.hit("enemy") ) { Crafty.audio.play("hit");  Crafty.e('finalscore'); this.destroy(); }
 		
-		if ( this.isDown(Crafty.keys.RIGHT_ARROW)) { this.DirectionX=1; }
+		if ( this.isDown(Crafty.keys.D)) { this.DirectionX=1; }
 			else
-		if ( this.isDown(Crafty.keys.LEFT_ARROW)) { this.DirectionX=-1; } 
+		if ( this.isDown(Crafty.keys.A)) { this.DirectionX=-1; } 
 			
-		if ( this.isDown(Crafty.keys.UP_ARROW)){ this.DirectionY=-1; }
+		if ( this.isDown(Crafty.keys.W)){ this.DirectionY=-1; }
 			else
-		if ( this.isDown(Crafty.keys.DOWN_ARROW)) { this.DirectionY=1; }
+		if ( this.isDown(Crafty.keys.S)) { this.DirectionY=1; }
 		
-		if ( this.isDown(Crafty.keys.W) && this.FireReady ) {
+		if ( this.isDown(Crafty.keys.UP_ARROW) && this.FireReady ) {
 			Crafty.e('projectile')._set(this.x+7,this.y,6,2,-1);
 			this.FireReady = false;
 			this.timeout( function() { this.FireReady =  true }, 500);
 		}
 			else
-		if ( this.isDown(Crafty.keys.S) && this.FireReady ) {
+		if ( this.isDown(Crafty.keys.DOWN_ARROW) && this.FireReady ) {
 			Crafty.e('projectile')._set(this.x+7,this.y+9,6,2,1);
 			this.FireReady = false;
 			this.timeout( function() { this.FireReady =  true }, 500);			
 		}
 		
-		if ( this.isDown(Crafty.keys.A) && this.FireReady ) {
+		if ( this.isDown(Crafty.keys.LEFT_ARROW) && this.FireReady ) {
 			Crafty.e('projectile')._set(this.x,this.y+7,2,6,-2); 
 			this.FireReady = false;
 			this.timeout( function() { this.FireReady =  true }, 500);
 		}
 			else
-		if ( this.isDown(Crafty.keys.D) && this.FireReady ) {
+		if ( this.isDown(Crafty.keys.RIGHT_ARROW) && this.FireReady ) {
 			Crafty.e('projectile')._set(this.x+10,this.y+7,2,6,2);
 			this.FireReady = false;
 			this.timeout( function() { this.FireReady =  true }, 500);
@@ -211,7 +211,7 @@ Crafty.c("finalscore",{
 		this.addComponent("2D, DOM, Text");
 		this.textColor('#FFFFFF');
 		this.attr({ x: 200, y: 75,w: 100 ,h: 20 })
-		this.bind('KeyDown', function(e) {	this.timeout(function() { score=0; clean(); Crafty.scene("game");}, 1000);	})
+		this.bind('KeyDown', function(e) {	this.timeout(function() { score=0; clean(); Crafty.scene("game");}, 3000);	})
 		this.text("Score  " +score).css("textAlign", "center").textColor('#FFFFFF');
 		
 	}

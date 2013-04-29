@@ -132,7 +132,7 @@ Crafty.c("projectile",{
 
 Crafty.c("enemy",{
 	Direction : 0,
-	Hit	  : 3,
+	Hit	  : 2,
  	init: function() {
 		this.addComponent("2D, DOM, Color ,Tween ,Collision");
 		this.color("#CC2EFA");
@@ -211,7 +211,7 @@ Crafty.c("finalscore",{
 		this.addComponent("2D, DOM, Text");
 		this.textColor('#FFFFFF');
 		this.attr({ x: 200, y: 75,w: 100 ,h: 20 })
-		this.bind('KeyDown', function(e) {	this.timeout(function() { score=0; clean(); Crafty.scene("game");}, 3000);	})
+		this.bind('KeyDown', function(e) { this.unbind("KeyDown"),e; this.timeout(function() {  score=0; clean(); Crafty.scene("game");}, 3000);	})
 		this.text("Score  " +score).css("textAlign", "center").textColor('#FFFFFF');
 		
 	}
